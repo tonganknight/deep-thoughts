@@ -11,8 +11,8 @@ type User {
     thoughts: [Thought]
     friends: [User]
   }
-  
-type Thought {
+
+  type Thought {
     _id: ID
     thoughtText: String
     createdAt: String
@@ -27,11 +27,17 @@ type Thought {
     createdAt: String
     username: String
   }
+
   type Query {
-  users: [User]
-  user(username: String!): User
-  thoughts(username: String): [Thought]
-  thought(_id: ID!): Thought
+    users: [User]
+    user(username: String!): User
+    thoughts(username: String): [Thought]
+    thought(_id: ID!): Thought
+  }
+
+    type Mutation {
+    login(email: String!, password: String!): User
+    addUser(username: String!, email: String!, password: String!): User
   }
 `;
 
